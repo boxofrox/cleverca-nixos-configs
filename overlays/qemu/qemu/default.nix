@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, python, pkgconfig, zlib, glib, user_arch, flex, bison,
+{ stdenv, fetchurl, python3, pkgconfig, zlib, glib, user_arch, flex, bison,
 makeStaticLibraries, glibc, qemu, fetchFromGitHub }:
 
 let
@@ -24,7 +24,7 @@ stdenv.mkDerivation rec {
   name = "qemu-user-${user_arch}-${version}";
   version = "3.1.0";
   src = if is_riscv then riscv_src else qemu.src;
-  buildInputs = [ python pkgconfig zlib.static myglib flex bison glibc.static ];
+  buildInputs = [ python3 pkgconfig zlib.static myglib flex bison glibc.static ];
   patches = [ ./qemu-stack.patch ];
   configureFlags = [
     "--enable-linux-user" "--target-list=${user_arch}-linux-user"
