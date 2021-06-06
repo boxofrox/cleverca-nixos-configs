@@ -30,7 +30,7 @@ stdenv.mkDerivation rec {
     "--enable-linux-user" "--target-list=${user_arch}-linux-user"
     "--disable-bsd-user" "--disable-system" "--disable-vnc"
     "--disable-curses" "--disable-sdl" "--disable-vde"
-    "--disable-bluez" "--disable-kvm"
+    "--disable-kvm"
     "--static"
     "--disable-tools"
     "--cpu=${arch_map.${user_arch}}"
